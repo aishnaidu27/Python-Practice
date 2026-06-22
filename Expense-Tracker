@@ -1,0 +1,54 @@
+expenses=[]
+
+def add_expense():
+    expense_name=input("Enter the Expense name: ")
+    expense_amount=int(input("Enter the cost of Expense: "))
+    new_expense={"name":expense_name,
+                 "amount":expense_amount}
+    expenses.append(new_expense)
+    print(expenses)
+    print("Added expenses succefully")
+
+def view_expense():
+    for expense in expenses:
+        print("Expense name:",expense["name"])
+        print("Expense amount:",expense["amount"])
+        print("---------------------")
+
+def total_expense():
+    total=0
+    for expense in expenses:
+        total=total+expense["amount"]
+        print(total)
+    print("Total expenses:",total)
+
+def delete_expense():
+    delete_expense=input("Enter the expense u want to delete: ")
+    for expense in expenses:
+        if expense["name"]==delete_expense:
+            expenses.remove(expense)
+            print("Expense deleted successfully!!")
+            break
+        print("-----------------")
+        print("Expense name:", expense["name"])
+        print("Expense amount:", expense["amount"])
+
+while True:
+    print("-------MENU-------")
+    print("1. Add Expense")
+    print("2. View Expenses")
+    print("3. Total Expenses")
+    print("4. Delete Expense")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice: "))
+    if choice==1:
+        add_expense()
+    elif choice==2:
+        view_expense()
+    elif choice==3:
+        total_expense()
+    elif choice==4:
+        delete_expense()
+    elif choice==5:
+        break
